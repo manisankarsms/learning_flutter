@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:learning_flutter/AlrajhiHome.dart';
+import 'package:learning_flutter/alrajhi_home.dart';
+import 'package:learning_flutter/ippb/ippb_login.dart';
 
 void main() {
   runApp(const MyApp());
@@ -45,11 +46,28 @@ class MyHomePage extends StatelessWidget {
         // Sets the content to the
         // center of the application page
         body: Center(
-          child: ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context)=>const AlrajhiHome(title: 'Alrajhi')));
-              },
-              child: const Text('Alrajhi PG')),
-        ));
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+              const SizedBox(
+                height: 100,
+              ),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => SimpleLoginScreen(key: key)));
+                  },
+                  child: const Text('IPPB')),
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) =>
+                            const AlrajhiHome(title: 'Alrajhi')));
+                  },
+                  child: const Text('Alrajhi PG')),
+              const SizedBox(
+                height: 100,
+              ),
+            ])));
   }
 }
